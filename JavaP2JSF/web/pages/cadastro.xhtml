@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+		<ui:composition template="padrao.xhtml">
+		<ui:define name="centro">
+		<h:form>
+		
+			<h:panelGrid>
+				<f:facet name="">
+					<h:outputText value="Digite os dados de cadastro:" />
+				</f:facet>
+				
+				<h:outputText value="Nome" />
+				<h:inputText value="#{usuarioBean.usuario}" />
+				<h:outputText value="E-mail" />
+				<h:inputText value="#{usuarioBean.email}" />				
+				<h:outputText value="Senha" />
+				<h:inputText value="#{usuarioBean.senha}" />
+				
+                                <h:commandButton action="#{usuarioBean.adicionarUsuario}" value="Adicionar" />
+				
+			</h:panelGrid>
+	
+			<br/>
+			
+                        <c:if test="#{usuarioBean.usuarios.size()!=0}">
+                            <h:dataTable value="#{usuarioBean.usuarios}" var="v" border="1">
+                                    <h:column>
+                                            <f:facet name="header">id</f:facet>
+                                            <h:outputLabel value="#{v.id}" />
+                                    </h:column>`
+                                    <h:column>
+                                            <f:facet name="header">Nome</f:facet>
+                                            <h:outputLabel value="#{v.usuario}" />
+                                    </h:column>
+                                    <h:column>
+                                            <f:facet name="header">Email</f:facet>
+                                            <h:outputLabel value="#{v.email}" />
+                                    </h:column>
+
+                            </h:dataTable>
+                        </c:if>
+		</h:form>
+	</ui:define>
+	</ui:composition>
+		
+</html> 

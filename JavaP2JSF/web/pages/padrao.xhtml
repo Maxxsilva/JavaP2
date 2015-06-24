@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Java JSF - P2</title>
+        <style type="text/css">
+            body {background-color: #750706; font-size: 14px; font-family: sans-serif}
+        </style> 
+    </h:head>
+    <h:body>
+        <div align="center">
+            <p:layout style="min-width:1020px;max-width:1020px;min-height:600px">  
+                <p:layoutUnit position="north" size="100" header="Trabalho de Java JSP">
+                </p:layoutUnit>  
+                <p:layoutUnit position="west" size="220">  
+                    <ui:insert name="menu">
+                        <h:form>
+                            <p:menu style="width: 200px">
+                                
+                                <p:submenu label="Menu">
+                                    <p:menuitem value="Principal" icon="ui-icon-home"  outcome="/index.xhtml"/>
+                                    
+                                    <p:menuitem value="Logar" icon="ui-icon-key" outcome="/pages/logar.xhtml"/>
+
+                                    <p:menuitem value="Cadastrar" icon="ui-icon-contact" outcome="/pages/cadastro.xhtml" />    
+                                    
+                                    <p:menuitem value="Calcular" icon="ui-icon-star" outcome="/pages/delta.xhtml" />   
+                                </p:submenu>
+                            </p:menu>
+                        </h:form>
+                    </ui:insert>
+                </p:layoutUnit>  
+                <p:layoutUnit position="center">  
+                    <ui:insert name="centro">
+                        Centro da página!!
+                    </ui:insert>
+                </p:layoutUnit>  
+            </p:layout>  
+        </div>
+    </h:body>
+</html>
