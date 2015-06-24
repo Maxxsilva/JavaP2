@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance">
+  <persistence-unit name="cmJavaJPA" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>cm.java.entidades.Produto</class>
+    <class>cm.java.entidades.Dependente</class>
+    <class>cm.java.entidades.Funcionario</class>
+    <properties>
+      <property name="eclipselink.canonicalmodel.subpackage" value="one"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="cmJavaJPACreate.ddl"/>
+      <property name="javax.persistence.schema-generation.scripts.drop-target" value="cmJavaJPADrop.ddl"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/cmJavaJPADB;create=true"/>
+      <property name="javax.persistence.jdbc.user" value="APP"/>
+      <property name="javax.persistence.jdbc.password" value="APP"/>
+      <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="cmJavaJPATeste" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>cm.java.entidades.Produto</class>
+    <class>cm.java.entidades.Dependente</class>
+    <class>cm.java.entidades.Funcionario</class>
+    <properties>
+      <property name="eclipselink.canonicalmodel.subpackage" value="two"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="create.sql"/>
+      <property name="javax.persistence.schema-generation.scripts.drop-target" value="drop.sql"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:cmJavaJPADB;create=true"/>
+      <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+    </properties>
+  </persistence-unit>
+</persistence>
